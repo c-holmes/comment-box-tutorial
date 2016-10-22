@@ -33,12 +33,15 @@ var CommentBox = React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
       url: this.props.url,
+      //url:'http://localhost:3000/api/comments',
       dataType: 'json',
       cache: false,
       success: function(data) {
         this.setState({data: data});
+        console.log('yes');
       }.bind(this),
       error: function(xhr, status, err) {
+        console.log('no');
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
